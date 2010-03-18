@@ -1,0 +1,24 @@
+%p
+  %b
+    Type:
+  = h @comment.type
+%p
+  %b
+    Category:
+  = h @comment.category
+%p
+  %b
+    Longitude:
+  = h @comment.longitude
+%p
+  %b
+    Latitude:
+  = h @comment.latitude
+%p
+  %b
+    Ip address:
+  = h @comment.ip_address
+
+= link_to 'Edit', edit_comment_path(@comment)
+|
+= link_to 'Back', comments_path

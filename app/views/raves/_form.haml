@@ -1,0 +1,25 @@
+- form_for(@rave) do |f|
+  = f.error_messages
+
+  %p
+    = f.label :category
+    %br
+    = f.text_field :category
+
+  %p
+    = f.label :longitude
+    %br
+    = f.text_field :longitude
+
+  %p
+    = f.label :latitude
+    %br
+    = f.text_field :latitude
+
+  %p
+    = f.label :ip_address
+    %br
+    = f.text_field :ip_address
+
+  %p
+    = f.submit 'Create'

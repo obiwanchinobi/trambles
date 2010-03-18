@@ -1,0 +1,11 @@
+!!!
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+    %title
+      = controller.action_name.titleize
+      = controller.controller_name.titleize
+    = stylesheet_link_tag 'scaffold', 'application', :cache => 'base'
+    = javascript_include_tag 'application', :cache => true
+  %body
+    = yield
