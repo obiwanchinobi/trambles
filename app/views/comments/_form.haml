@@ -1,60 +1,68 @@
-.myform#stylized
+.addForm#stylized
   %h1==New #{controller.controller_name.titleize}
-  %p blah blah
   %br
   - form_for(@comment) do |f|
     = f.error_messages
     = f.hidden_field :category
 
-    = f.label :author
+    %label
+      Author
+      %span.small
+        Enter you name
     = f.text_field :author
 
-    / Bus specific
-    = f.label :"Bus Number"
-    %span.small :"Enter bus number"
+    %label
+      Bus Number
+      %span.small
+        Enter Bus Number
     = f.text_field :vehicle_driver_number
-
-    = f.label :transport, "Bus Company"
+        
+    %label
+      Bus Company
+      %span.small
+        Enter Company Name
     = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
 
-    %p
-      = f.label :incident_info, "Bus Info"
-      = f.text_field :incident_info
+    %label
+      Bus Info
+      %span.small
+        Enter Bus Info
+    = f.text_field :incident_info
+
+    %label
+      Driver License Plate
+      %span.small
+        Enter plate details
+    = f.text_field :vehicle_driver_number
+
+    %label
+      Vehicle Info
+      %span.small
+        Enter vehicle info
+    = f.text_field :incident_info
       
-    / Driver specific
-    %p
-      = f.label :vehicle_driver_number, "Driver License Plate"
-      = f.text_field :vehicle_driver_number
-    %p
-      = f.label :incident_info, "Vehicle Info"
-      %br
-      = f.text_field :incident_info
-  
-    / Taxi specific
-    %p
-      = f.label :vehicle_driver_number, "Taxi Driver License Number"
-      %br
-      = f.text_field :vehicle_driver_number
-    %p
-      = f.label :transport, "Taxi Company"
-      %br
-      = f.collection_select(:transport_id, Taxi.ascend_by_company, :id, :company, :include_blank => :true)
-      
-    / Train specific
     = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
-    %p
-      = f.label :transport_line, "Train Line"
-      %br
-      = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
-    %p
-      = f.label :direction
-      %br
-      #trains
+    %label
+      Train Line
+      %span.small
+        Select train line
+    = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
+ 
+    %br
 
-    %p
-      = f.label :ramble
-      %br
-      = f.text_area :ramble
+    %label
+      Line Direction 
+      %span.small
+        Select line direction
+    #trains
 
-    %p
-      = f.submit 'Create'
+    %label
+      ==New #{controller.controller_name.titleize}
+      %span.small
+        Enter details
+    = f.text_area :ramble
+
+    %button
+      Create
+      /= f.submit 'Create'
+      
