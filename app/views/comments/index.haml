@@ -1,15 +1,9 @@
 =render :partial => 'header'
-#feeds
-  %ul
-    %li
-      =render :partial => 'buses'
-    %li
-      "TEST"
-      /=render :partial => 'drivers'
-    %li
-      "TEST"
-      /=render :partial => 'taxis'
-    %li
-      "TEST"
-      /=render :partial => 'trains'
+.container
+  %div#feedBox.feed_1
+    =render :partial => 'buses'
+  %div.feed_2
+    =render :partial => 'buses'
+  %div.feed_3
+    =render :partial => 'buses'
 =render :partial => 'footer'

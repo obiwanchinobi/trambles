@@ -1,4 +1,10 @@
-Buses
+%h3 Buses
+%span
+  %a.button{:href=>"raves/new?category='Bus'"}
+    %span.rave Rave
+  %a.button{:href=>"rants/new?category='Bus'"}
+    %span.rant Rant
+
 %table
   %tr
     %th
@@ -13,12 +19,7 @@ Buses
       Bus Info
     %th
       Ramble
-    / %th
-    /   Longitude
-    / %th
-    /   Latitude
-    / %th
-    /   Ip address
+
   - @buses.each do |comment|
     %tr
       %td
@@ -33,21 +34,3 @@ Buses
         =h comment.incident_info
       %td
         =h comment.ramble
-      / %td
-      /   =h comment.longitude
-      / %td
-      /   =h comment.latitude
-      / %td
-      /   =h comment.ip_address
-      / %td
-      /   = link_to 'Show', comment
-      / %td
-      /   = link_to 'Edit', edit_comment_path(comment)
-      / %td
-      /   = link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
-
-%br
-= link_to 'New Rant', new_rant_path(:category => Comment::BUS)
-|
-/ TODO: Inflection is causing this!
-= link_to 'New Rave', new_rafe_path(:category => Comment::BUS)
