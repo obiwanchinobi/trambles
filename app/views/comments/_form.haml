@@ -1,5 +1,5 @@
 .myform#stylized
-  %h1 New Rant
+  %h1==New #{controller.controller_name.titleize}
   %p blah blah
   %br
   - form_for(@comment) do |f|
