@@ -14,9 +14,16 @@ ActiveRecord::Schema.define(:version => 20100318071150) do
   create_table "comments", :force => true do |t|
     t.string   "type"
     t.string   "category"
+    t.text     "comment"
     t.string   "longitude"
     t.string   "latitude"
     t.string   "ip_address"
+    t.string   "author"
+    t.string   "vehicle_driver_number"
+    t.string   "vehicle_description"
+    t.integer  "taxi_company_id"
+    t.integer  "train_line"
+    t.integer  "train_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

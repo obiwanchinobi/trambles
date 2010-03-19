@@ -1,0 +1,49 @@
+%h1
+  Listing comments
+%table
+  %tr
+    %th
+      Type
+    %th
+      Category
+    %th
+      Author
+    / %th
+    /   Longitude
+    / %th
+    /   Latitude
+    / %th
+    /   Ip address
+  - @bus.each do |comment|
+    %tr
+      %td
+        =h comment.type
+      %td
+        =h comment.category
+      %td
+        =h comment.author
+      / %td
+      /   =h comment.longitude
+      / %td
+      /   =h comment.latitude
+      / %td
+      /   =h comment.ip_address
+      / %td
+      /   = link_to 'Show', comment
+      / %td
+      /   = link_to 'Edit', edit_comment_path(comment)
+      / %td
+      /   = link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= link_to 'New comment', new_comment_path
+
+
+
+
+t.string :author
+t.string :vehicle_driver_number
+t.string :vehicle_description
+t.integer :taxi_company_id
+t.integer :train_line
+t.integer :train_description
