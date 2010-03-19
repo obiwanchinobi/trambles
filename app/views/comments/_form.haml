@@ -14,7 +14,7 @@
   %p
     = f.label :transport, "Bus Company"
     %br
-    = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company)
+    = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
   %p
     = f.label :incident_info, "Bus Info"
     %br
@@ -38,17 +38,18 @@
   %p
     = f.label :transport, "Taxi Company"
     %br
-    = f.collection_select(:transport_id, Taxi.ascend_by_company, :id, :company)
+    = f.collection_select(:transport_id, Taxi.ascend_by_company, :id, :company, :include_blank => :true)
       
   / Train specific
+  = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
   %p
-    = f.label :train_line
+    = f.label :transport_line, "Train Line"
     %br
-    = f.text_field :train_line
+    = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
   %p
-    = f.label :train_direction
+    = f.label :direction
     %br
-    = f.text_field :train_direction
+    #trains
 
   %p
     = f.label :ramble

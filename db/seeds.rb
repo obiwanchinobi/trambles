@@ -15,3 +15,13 @@ end
 FasterCSV.foreach("#{RAILS_ROOT}/db/import/Taxis.csv", :headers => true) do |row|
   Taxi.create(:company => row['Name'], :phone => row['Phone'], :web => row['Web'])
 end
+
+# Import Train lines
+FasterCSV.foreach("#{RAILS_ROOT}/db/import/Train.csv", :headers => true) do |row|
+  train_line = TrainLine.find_by_name(row['line'])
+  if train_line.nil?
+    train_line = TrainLine.create(:name => row['line'])
+  end
+  
+  Direction.create(:name => row['direction'], :transport_line => train_line)
+end

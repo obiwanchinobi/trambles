@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @transport_line.name %>
+</p>
+
+<p>
+  <b>Destination:</b>
+  <%=h @transport_line.destination %>
+</p>
+
+
+<%= link_to 'Edit', edit_transport_line_path(@transport_line) %> |
+<%= link_to 'Back', transport_lines_path %>

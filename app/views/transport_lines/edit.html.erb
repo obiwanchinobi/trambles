@@ -1,0 +1,20 @@
+<h1>Editing transport_line</h1>
+
+<% form_for(@transport_line) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :destination %><br />
+    <%= f.text_field :destination %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @transport_line %> |
+<%= link_to 'Back', transport_lines_path %>

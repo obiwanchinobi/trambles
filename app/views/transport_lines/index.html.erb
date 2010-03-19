@@ -1,0 +1,22 @@
+<h1>Listing transport_lines</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Destination</th>
+  </tr>
+
+<% @transport_lines.each do |transport_line| %>
+  <tr>
+    <td><%=h transport_line.name %></td>
+    <td><%=h transport_line.destination %></td>
+    <td><%= link_to 'Show', transport_line %></td>
+    <td><%= link_to 'Edit', edit_transport_line_path(transport_line) %></td>
+    <td><%= link_to 'Destroy', transport_line, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New transport_line', new_transport_line_path %>

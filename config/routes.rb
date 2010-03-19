@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :directions
+
+  map.resources :transport_lines
+
   map.resources :transports
 
   map.resources :raves, :only => [:new, :create]
