@@ -1,0 +1,49 @@
+Ferries
+%table
+  %tr
+    %th
+      Rant/Rave
+    %th
+      Author
+    %th
+      Ferry Line
+    %th
+      Ferry Direction
+    %th
+      Ramble
+    / %th
+    /   Longitude
+    / %th
+    /   Latitude
+    / %th
+    /   Ip address
+  - @trains.each do |comment|
+    %tr
+      %td
+        =h comment.type
+      %td
+        =h comment.author
+      %td
+        =h comment.train_line.name
+      %td
+        =h comment.direction.name
+      %td
+        =h comment.ramble
+      / %td
+      /   =h comment.longitude
+      / %td
+      /   =h comment.latitude
+      / %td
+      /   =h comment.ip_address
+      / %td
+      /   = link_to 'Show', comment
+      / %td
+      /   = link_to 'Edit', edit_comment_path(comment)
+      / %td
+      /   = link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= link_to 'New Rant', new_rant_path(:category => Comment::TRAIN)
+|
+/ TODO: Inflection is causing this!
+= link_to 'New Rave', new_rafe_path(:category => Comment::TRAIN)
