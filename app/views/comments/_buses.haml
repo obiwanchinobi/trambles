@@ -1,36 +1,28 @@
-%h3 Buses
-%span
-  %a.button{:href=>"raves/new?category='Bus'"}
+.rectangle
+  %h2 Buses
+.triangle-l
+.triangle-r
+.buttons
+  %span.bus
+  %a.buttonRave{:href=>"raves/new?category=Bus"}
     %span.rave Rave
-  %a.button{:href=>"rants/new?category='Bus'"}
+  %a.buttonRant{:href=>"rants/new?category=Bus"}
     %span.rant Rant
 
-%table
-  %tr
-    %th
-      Rant/Rave
-    %th
-      Author
-    %th
-      Bus Company
-    %th
-      Bus Number
-    %th
-      Bus Info
-    %th
-      Ramble
-
+.info
   - @buses.each do |comment|
-    %tr
-      %td
-        =h comment.type
-      %td
-        =h comment.author
-      %td
-        =h comment.transport.company
-      %td
-        =h comment.vehicle_driver_number
-      %td
-        =h comment.incident_info
-      %td
-        =h comment.ramble
+    %h2
+      =h comment.transport_id
+    %p
+      - if comment.type == "rave"
+        %span.raveIcon
+      - else
+        %span.rantIcon
+      =h comment.ramble
+      %br
+      %span.footer
+        added by 
+        %span.author
+          =h comment.author
+        on 
+        =h comment.created_at
