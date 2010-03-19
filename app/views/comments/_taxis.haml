@@ -18,7 +18,7 @@
     /   Latitude
     / %th
     /   Ip address
-  - @transports.each do |comment|
+  - @taxis.each do |comment|
     %tr
       %td
         =h comment.type
@@ -27,7 +27,7 @@
       %td
         =h comment.vehicle_driver_number
       %td
-        =h comment.transport_company_id
+        =h comment.transport.company
       %td
         =h comment.ramble
       / %td

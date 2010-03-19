@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20100319024930) do
     t.string   "author"
     t.string   "vehicle_driver_number"
     t.string   "incident_info"
-    t.integer  "transport_company_id"
+    t.integer  "transport_id"
     t.integer  "train_line"
     t.integer  "train_direction"
     t.datetime "created_at"
