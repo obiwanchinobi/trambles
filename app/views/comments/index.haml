@@ -1,9 +1,8 @@
 =render :partial => 'header'
-.container
-  %div#feedBox.feed_1
-    =render :partial => 'buses'
-  %div.feed_2
-    =render :partial => 'buses'
-  %div.feed_3
-    =render :partial => 'buses'
+
+.grid_4=render :partial => 'buses'
+.grid_4=render :partial => 'ferries'
+.grid_4=render :partial => 'trains'
+.clear
+
 =render :partial => 'footer'
