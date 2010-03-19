@@ -4,6 +4,37 @@ body{
 }
 p, h1, form, button{border:0; margin:0; padding:0;}
 .spacer{clear:both; height:1px;}
+
+/* ----------- header ----------- */
+#header {
+	position: relative;
+	width: 1002px;
+	height: 306px;
+	margin: 0 auto;
+	background: url(../images/header.jpg) no-repeat 0 0;
+	z-index: 10;
+}
+
+/* ----------- feeds ----------- */
+#feeds ul {
+  min-width:500px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
+  width: 90%;
+}
+
+#feeds ul li {
+  margin: 50;
+  display: inline;
+  border:solid 2px #b7ddf2;
+	background:#ebf4fb;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	width: 20%;
+}
+
 /* ----------- My Form ----------- */
 .myform{
 	margin:0 auto;

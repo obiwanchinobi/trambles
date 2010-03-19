@@ -1,60 +1,60 @@
-- form_for(@comment) do |f|
-  = f.error_messages
-  = f.hidden_field :category
-  %p
+.myform#stylized
+  %h1 New Rant
+  %p blah blah
+  %br
+  - form_for(@comment) do |f|
+    = f.error_messages
+    = f.hidden_field :category
+
     = f.label :author
-    %br
     = f.text_field :author
 
-  / Bus specific
-  %p
-    = f.label :vehicle_driver_number, "Bus Number"
-    %br
+    / Bus specific
+    = f.label :"Bus Number"
+    %span.small :"Enter bus number"
     = f.text_field :vehicle_driver_number
-  %p
+
     = f.label :transport, "Bus Company"
-    %br
     = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
-  %p
-    = f.label :incident_info, "Bus Info"
-    %br
-    = f.text_field :incident_info
+
+    %p
+      = f.label :incident_info, "Bus Info"
+      = f.text_field :incident_info
       
-  / Driver specific
-  %p
-    = f.label :vehicle_driver_number, "Driver License Plate"
-    %br
-    = f.text_field :vehicle_driver_number
-  %p
-    = f.label :incident_info, "Vehicle Info"
-    %br
-    = f.text_field :incident_info
+    / Driver specific
+    %p
+      = f.label :vehicle_driver_number, "Driver License Plate"
+      = f.text_field :vehicle_driver_number
+    %p
+      = f.label :incident_info, "Vehicle Info"
+      %br
+      = f.text_field :incident_info
   
-  / Taxi specific
-  %p
-    = f.label :vehicle_driver_number, "Taxi Driver License Number"
-    %br
-    = f.text_field :vehicle_driver_number
-  %p
-    = f.label :transport, "Taxi Company"
-    %br
-    = f.collection_select(:transport_id, Taxi.ascend_by_company, :id, :company, :include_blank => :true)
+    / Taxi specific
+    %p
+      = f.label :vehicle_driver_number, "Taxi Driver License Number"
+      %br
+      = f.text_field :vehicle_driver_number
+    %p
+      = f.label :transport, "Taxi Company"
+      %br
+      = f.collection_select(:transport_id, Taxi.ascend_by_company, :id, :company, :include_blank => :true)
       
-  / Train specific
-  = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
-  %p
-    = f.label :transport_line, "Train Line"
-    %br
-    = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
-  %p
-    = f.label :direction
-    %br
-    #trains
+    / Train specific
+    = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
+    %p
+      = f.label :transport_line, "Train Line"
+      %br
+      = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
+    %p
+      = f.label :direction
+      %br
+      #trains
 
-  %p
-    = f.label :ramble
-    %br
-    = f.text_area :ramble
+    %p
+      = f.label :ramble
+      %br
+      = f.text_area :ramble
 
-  %p
-    = f.submit 'Create'
+    %p
+      = f.submit 'Create'
