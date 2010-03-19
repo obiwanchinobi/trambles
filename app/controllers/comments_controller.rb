@@ -3,15 +3,16 @@ class CommentsController < ApplicationController
   # GET /comments.xml
   def index
     @buses    = Comment.category_equals(Comment::BUS)
-    # @drivers  = Comment.category_equals(Comment::DRIVER)
     @ferries   = Comment.category_equals(Comment::FERRY)
-    # @taxis    = Comment.category_equals(Comment::TAXI)
     @trains   = Comment.category_equals(Comment::TRAIN)
+
+    # @drivers  = Comment.category_equals(Comment::DRIVER)
+    # @taxis    = Comment.category_equals(Comment::TAXI)
     
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @comments }
-    end
+    # respond_to do |format|
+    #   format.html # index.html.erb
+    #   format.xml  { render :xml => @comments }
+    # end
   end
 
   # GET /comments/1

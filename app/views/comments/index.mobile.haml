@@ -1,0 +1,22 @@
+%ul
+  %li.arrow
+    %a{:href => "#bus_link" } Bus Rambles
+  %li
+    Total Raves:
+    = @buses.type_equals('rave').count
+    Total Rants:
+    = @buses.type_equals('rant').count
+  %li.arrow
+    %a{:href => "#bus_link" } Ferry Rambles
+  %li
+    Total Raves:
+    = @ferries.type_equals('rave').count
+    Total Rants:
+    = @ferries.type_equals('rant').count
+  %li.arrow
+    %a{:href => "#bus_link" } Train Rambles
+  %li
+    Total Raves:
+    = @trains.type_equals('rave').count
+    Total Rants:
+    = @trains.type_equals('rant').count
