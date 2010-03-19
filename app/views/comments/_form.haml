@@ -1,30 +1,55 @@
 - form_for(@comment) do |f|
   = f.error_messages
+  = f.hidden_field :category
   %p
-    = f.label :type
-    
+    = f.label :author
     %br
-    = f.text_field :type
+    = f.text_field :author
+
+  / Bus specific
+  %p
+    = f.label :vehicle_driver_number, "Bus Number"
+    %br
+    = f.text_field :vehicle_driver_number
+  %p
+    = f.label :incident_info, "Bus Info"
+    %br
+    = f.text_field :incident_info
+      
+  / Driver specific
+  %p
+    = f.label :vehicle_driver_number, "Driver License Plate"
+    %br
+    = f.text_field :vehicle_driver_number
+  %p
+    = f.label :incident_info, "Vehicle Info"
+    %br
+    = f.text_field :incident_info
+  
+  / Taxi specific
+  %p
+    = f.label :vehicle_driver_number, "Taxi Driver License Number"
+    %br
+    = f.text_field :vehicle_driver_number
+  %p
+    = f.label :taxi_company_id, "Taxi Company"
+    %br
+    = f.text_field :taxi_company_id
+      
+  / Train specific
+  %p
+    = f.label :train_line
+    %br
+    = f.text_field :train_line
+  %p
+    = f.label :train_direction
+    %br
+    = f.text_field :train_direction
 
   %p
-    = f.label :category
+    = f.label :ramble
     %br
-    = f.text_field :category
-
-  %p
-    = f.label :longitude
-    %br
-    = f.text_field :longitude
-
-  %p
-    = f.label :latitude
-    %br
-    = f.text_field :latitude
-
-  %p
-    = f.label :ip_address
-    %br
-    = f.text_field :ip_address
+    = f.text_area :ramble
 
   %p
     = f.submit 'Create'

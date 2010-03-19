@@ -1,14 +1,18 @@
 class RavesController < ApplicationController
   def new
-    @rave = Rave.new
+    @comment = Rave.new(:category => params[:category])
   end
   
   def create
-    @rave = Rave.new
+    @comment = Rave.new(params[:rave])
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
+      if @comment.save
+        flash[:notice] = 'Rave was successfully created.'
+        format.html { redirect_to(root_url) }
+      else
+        format.html { render :action => "new" }
+      end
     end
   end
 end
