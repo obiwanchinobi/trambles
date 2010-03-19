@@ -1,14 +1,18 @@
 class RantsController < ApplicationController
   def new
-    @rant = Rant.new
+    @comment = Rant.new(:category => params[:category])
   end
   
   def create
-    @rant = Rant.new
+    @comment = Rant.new(params[:rant])
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
+      if @comment.save
+        flash[:notice] = 'Rave was successfully created.'
+        format.html { redirect_to(root_url) }
+      else
+        format.html { render :action => "new" }
+      end
     end
   end
 end

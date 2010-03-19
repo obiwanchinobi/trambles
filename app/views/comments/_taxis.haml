@@ -1,0 +1,50 @@
+%h1
+  Taxis
+%table
+  %tr
+    %th
+      Rant/Rave
+    %th
+      Author
+    %th
+      Taxi Driver License Number
+    %th
+      Taxi Company
+    %th
+      Ramble
+    / %th
+    /   Longitude
+    / %th
+    /   Latitude
+    / %th
+    /   Ip address
+  - @taxis.each do |comment|
+    %tr
+      %td
+        =h comment.type
+      %td
+        =h comment.author
+      %td
+        =h comment.vehicle_driver_number
+      %td
+        =h comment.taxi_company_id
+      %td
+        =h comment.ramble
+      / %td
+      /   =h comment.longitude
+      / %td
+      /   =h comment.latitude
+      / %td
+      /   =h comment.ip_address
+      / %td
+      /   = link_to 'Show', comment
+      / %td
+      /   = link_to 'Edit', edit_comment_path(comment)
+      / %td
+      /   = link_to 'Destroy', comment, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= link_to 'New Rant', new_rant_path(:category => Comment::TAXI)
+|
+/ TODO: Inflection is causing this!
+= link_to 'New Rave', new_rafe_path(:category => Comment::TAXI)

@@ -5,4 +5,6 @@ class Comment < ActiveRecord::Base
   FERRY = 'Ferry'
   TRAIN = 'Train'
   TAXI = 'Taxi'
+  
+  validates_presence_of :author, :ramble
 end

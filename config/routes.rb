@@ -1,7 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :rants, :only => [:new, :create]
   map.resources :raves, :only => [:new, :create]
+  map.resources :rants, :only => [:new, :create]
+
   map.resources :comments
+
+  map.index 'index', :controller => "comments", :action => "index"
+  map.root :index
 
   # The priority is based upon order of creation: first created -> highest priority.
 
