@@ -16,7 +16,7 @@ Total Rants:
 .info
   - @buses.each do |comment|
     %h2
-      =h comment.transport.company
+      =h comment.transport.company if comment.transport.present?
     %p
       - if comment.type == "Rave"
         %span.raveIcon
