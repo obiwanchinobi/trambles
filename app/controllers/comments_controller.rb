@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def index
     @buses    = Comment.category_equals(Comment::BUS)
     @drivers  = Comment.category_equals(Comment::DRIVER)
-    @taxis    = Comment.category_equals(Comment::TAXI)
+    @transports    = Comment.category_equals(Comment::TAXI)
     @trains   = Comment.category_equals(Comment::TRAIN)
 
     respond_to do |format|

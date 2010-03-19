@@ -1,0 +1,18 @@
+<p>
+  <b>Company:</b>
+  <%=h @transport.company %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @transport.phone %>
+</p>
+
+<p>
+  <b>Web:</b>
+  <%=h @transport.web %>
+</p>
+
+
+<%= link_to 'Edit', edit_transport_path(@transport) %> |
+<%= link_to 'Back', transports_path %>

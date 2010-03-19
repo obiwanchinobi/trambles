@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :transports
+
   map.resources :raves, :only => [:new, :create]
   map.resources :rants, :only => [:new, :create]
 

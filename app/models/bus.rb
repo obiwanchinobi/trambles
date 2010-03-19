@@ -1,0 +1,2 @@
+class Bus < Transport
+end

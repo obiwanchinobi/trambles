@@ -12,6 +12,10 @@
     %br
     = f.text_field :vehicle_driver_number
   %p
+    = f.label :transport_company_id, "Bus Company"
+    %br
+    = f.collection_select(:transport_company_id, Bus.ascend_by_company, :id, :company)
+  %p
     = f.label :incident_info, "Bus Info"
     %br
     = f.text_field :incident_info
@@ -32,9 +36,9 @@
     %br
     = f.text_field :vehicle_driver_number
   %p
-    = f.label :taxi_company_id, "Taxi Company"
+    = f.label :transport_company_id, "Taxi Company"
     %br
-    = f.text_field :taxi_company_id
+    = f.collection_select(:transport_company_id, Taxi.ascend_by_company, :id, :company)
       
   / Train specific
   %p

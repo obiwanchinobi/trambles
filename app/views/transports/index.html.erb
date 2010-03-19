@@ -1,0 +1,24 @@
+<h1>Listing transports</h1>
+
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Phone</th>
+    <th>Web</th>
+  </tr>
+
+<% @transports.each do |transport| %>
+  <tr>
+    <td><%=h transport.company %></td>
+    <td><%=h transport.phone %></td>
+    <td><%=h transport.web %></td>
+    <td><%= link_to 'Show', transport %></td>
+    <td><%= link_to 'Edit', edit_transport_path(transport) %></td>
+    <td><%= link_to 'Destroy', transport, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New transport', new_transport_path %>

@@ -10,7 +10,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :author
       t.string :vehicle_driver_number
       t.string :incident_info               # e.g. which way was the bus going?
-      t.integer :taxi_company_id
+      t.integer :transport_company_id
       t.integer :train_line
       t.integer :train_direction
 
