@@ -1,3 +1,7 @@
+Total Raves:
+= @buses.type_equals('rave').count
+Total Rants:
+= @buses.type_equals('rant').count
 .rectangle
   %h2 Buses
 .triangle-l
@@ -12,7 +16,7 @@
 .info
   - @buses.each do |comment|
     %h2
-      =h comment.transport_id
+      =h comment.transport.company
     %p
       - if comment.type == "rave"
         %span.raveIcon
@@ -25,4 +29,4 @@
         %span.author
           =h comment.author
         on 
-        =h comment.created_at
+        =h comment.created_at.to_formatted_s(:date_time12)

@@ -1,3 +1,7 @@
+Total Raves:
+= @ferries.type_equals('rave').count
+Total Rants:
+= @ferries.type_equals('rant').count
 .rectangle
   %h2 Ferries
 .triangle-l
@@ -11,12 +15,14 @@
 .info
   - @ferries.each do |comment|
     %h2
-      =h comment.transport_id
+      =h comment.ferry_line.name
     %p
       - if comment.type == "rave"
         %span.raveIcon
       - else
         %span.rantIcon
+      =h comment.direction.name
+      %br
       =h comment.ramble
       %br
       %span.footer
@@ -24,4 +30,4 @@
         %span.author
           =h comment.author
         on 
-        =h comment.created_at
+        =h comment.created_at.to_formatted_s(:date_time12)

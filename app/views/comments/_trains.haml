@@ -1,3 +1,7 @@
+Total Raves:
+= @trains.type_equals('rave').count
+Total Rants:
+= @trains.type_equals('rant').count
 .rectangle
   %h2 Trains
 .triangle-l
@@ -17,7 +21,7 @@
         %span.raveIcon
       - else
         %span.rantIcon
-      =h comment.direction
+      =h comment.direction.name
       %br
       =h comment.ramble
       %br
@@ -26,4 +30,4 @@
         %span.author
           =h comment.author
         on 
-        =h comment.created_at
+        =h comment.created_at.to_formatted_s(:date_time12)
