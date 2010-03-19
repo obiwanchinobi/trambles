@@ -15,13 +15,13 @@ Total Rants:
 .info
   - @trains.each do |comment|
     %h2
-      =h comment.train_line.name
+      =h comment.train_line.name if comment.train_line.present?
     %p
       - if comment.type == "Rave"
         %span.raveIcon
       - else
         %span.rantIcon
-      =h comment.direction.name
+      =h comment.direction.name if comment.direction.present?
       %br
       =h comment.ramble
       %br
