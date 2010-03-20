@@ -11,5 +11,9 @@ class Comment < ActiveRecord::Base
   belongs_to :ferry_line, :foreign_key => 'transport_line_id'
   belongs_to :direction
   
-  validates_presence_of :author, :ramble
+  validates_presence_of :ramble
+  
+  def get_author
+    self.author || 'Anonymous'
+  end
 end

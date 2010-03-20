@@ -28,17 +28,11 @@
   = f.text_field :incident_info
 
   %label
-    Driver License Plate
+    Ferry Line
     %span.small
-      Enter plate details
-  = f.text_field :vehicle_driver_number
-
-  %label
-    Vehicle Info
-    %span.small
-      Enter vehicle info
-  = f.text_field :incident_info
-    
+      Select ferry line
+  = f.collection_select(:transport_line_id, FerryLine.ascend_by_name, :id, :name, :include_blank => :true)
+  
   = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
   %label
     Train Line

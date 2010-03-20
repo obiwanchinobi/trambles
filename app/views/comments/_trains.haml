@@ -14,18 +14,18 @@
   - @trains.each do |comment|
     %h2
       =h comment.train_line.name if comment.train_line.present?
+      =h comment.direction.name if comment.direction.present?
     %p
       - if comment.type == "Rave"
         %span.raveIcon
       - else
         %span.rantIcon
-      =h comment.direction.name if comment.direction.present?
       %br
       =h comment.ramble
       %br
       %span.footer
         added by 
         %span.author
-          =h comment.author
+          =h comment.get_author
         on 
         =h comment.created_at.to_formatted_s(:date_time12)
