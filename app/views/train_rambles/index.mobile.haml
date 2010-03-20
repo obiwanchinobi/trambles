@@ -6,7 +6,7 @@
         %p
           =h comment.train_line.name if comment.train_line.present?
           =h comment.direction.name if comment.direction.present?
-          ==added by #{comment.author} on #{comment.created_at.to_formatted_s(:date_time12)}
+          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
         %p
           - if comment.type == "Rave"
             %span.raveIcon
