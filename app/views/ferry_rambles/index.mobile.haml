@@ -5,10 +5,7 @@
       %li
         %p
           =h comment.ferry_line.name if comment.ferry_line.present?
-          ==added by #{comment.author} on #{comment.created_at.to_formatted_s(:date_time12)}
-        - if comment.direction.present?
-          %p
-            == Direction: #{comment.direction.name}
+          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
         %p
           - if comment.type == "Rave"
             %span.raveIcon

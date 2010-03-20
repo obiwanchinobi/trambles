@@ -5,9 +5,9 @@
       %li
         %p
           =h comment.transport.company if comment.transport.present?
-          ==added by #{comment.author} on #{comment.created_at.to_formatted_s(:date_time12)}
-        %p
-          == Bus Direction: #{comment.incident_info}
+          =h comment.vehicle_driver_number
+          =h comment.incident_info
+          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
         %p
           - if comment.type == "Rave"
             %span.raveIcon
