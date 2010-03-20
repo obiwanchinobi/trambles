@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
     session[:mobile_param] = params[:mobile] if params[:mobile]
     request.format = :mobile if mobile_device?
   end
+  
+  def unauthorised_access
+    redirect_to root_url
+  end
 end

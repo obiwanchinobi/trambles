@@ -24,7 +24,7 @@
     = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
 
     %label
-      Bus Info
+      Bus Direction
       %span.small
         Enter Bus Info
     = f.text_field :incident_info
@@ -64,5 +64,3 @@
 
     %button
       Create
-      /= f.submit 'Create'
-      

@@ -7,14 +7,12 @@ class RavesController < ApplicationController
   def create
     @train_lines = TrainLine.ascend_by_name
     @comment = Rave.new(params[:rave])
-
-    respond_to do |format|
-      if @comment.save
-        flash[:notice] = 'Rave was successfully created.'
-        format.html { redirect_to(root_url) }
-      else
-        format.html { render :action => "new" }
-      end
+    
+    if @comment.save
+      flash[:notice] = 'Rave was successfully created.'
+      redirect_to(root_url)
+    else
+      render :action => "new"
     end
   end
 end

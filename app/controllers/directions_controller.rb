@@ -1,4 +1,6 @@
 class DirectionsController < ApplicationController
+  before_filter :unauthorised_access
+  
   # GET /directions
   # GET /directions.xml
   def index

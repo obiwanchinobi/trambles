@@ -1,7 +1,3 @@
-Total Raves:
-= @buses.type_equals('Rave').count
-Total Rants:
-= @buses.type_equals('Rant').count
 .rectangle
   %h2 Buses
 .triangle-l
@@ -10,16 +6,10 @@ Total Rants:
   %span.bus
   %a.buttonRave{:href=>"raves/new?category=Bus"}
     %span.rave
-      Rave
-      (
-      = @buses.type_equals('Rave').count
-      )
+      ==Rave(#{@buses.type_equals('Rave').count})
   %a.buttonRant{:href=>"rants/new?category=Bus"}
     %span.rant
-      Rant
-      (
-      = @buses.type_equals('Rant').count
-      )
+      ==Rant(#{@buses.type_equals('Rant').count})
 .info
   - @buses.each do |comment|
     %h2

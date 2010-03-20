@@ -1,4 +1,12 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :train_rambles, :only => [:index]
+  
+  map.resources :ferry_rambles, :only => [:index]
+  
+  map.resources :bus_rambles, :only => [:index]
+  
+  map.resources :info, :only => [:index]
+  
   map.resources :directions
 
   map.resources :transport_lines

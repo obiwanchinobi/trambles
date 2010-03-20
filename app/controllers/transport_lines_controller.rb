@@ -1,4 +1,6 @@
 class TransportLinesController < ApplicationController
+  before_filter :unauthorised_access
+  
   # GET /transport_lines
   # GET /transport_lines.xml
   def index

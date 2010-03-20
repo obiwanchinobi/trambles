@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   # GET /comments.xml
   def index
     @buses    = Comment.category_equals(Comment::BUS)
-    @ferries   = Comment.category_equals(Comment::FERRY)
+    @ferries  = Comment.category_equals(Comment::FERRY)
     @trains   = Comment.category_equals(Comment::TRAIN)
 
     # @drivers  = Comment.category_equals(Comment::DRIVER)

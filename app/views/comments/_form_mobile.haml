@@ -1,0 +1,64 @@
+%br
+- form_for(@comment) do |f|
+  = f.error_messages
+  = f.hidden_field :category
+
+  %label
+    Author
+    %span.small
+      Enter you name
+  = f.text_field :author
+
+  %label
+    Bus Number
+    %span.small
+      Enter Bus Number
+  = f.text_field :vehicle_driver_number
+      
+  %label
+    Bus Company
+    %span.small
+      Enter Company Name
+  = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
+
+  %label
+    Bus Direction
+    %span.small
+      Enter Bus Info
+  = f.text_field :incident_info
+
+  %label
+    Driver License Plate
+    %span.small
+      Enter plate details
+  = f.text_field :vehicle_driver_number
+
+  %label
+    Vehicle Info
+    %span.small
+      Enter vehicle info
+  = f.text_field :incident_info
+    
+  = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
+  %label
+    Train Line
+    %span.small
+      Select train line
+  = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
+
+  %br
+
+  %label
+    Line Direction 
+    %span.small
+      Select line direction
+  #trains
+
+  %label
+    ==New #{controller.controller_name.titleize}
+    %span.small
+      Enter details
+  = f.text_area :ramble
+
+  %button
+    Create

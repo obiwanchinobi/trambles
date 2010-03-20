@@ -13,10 +13,12 @@
     .current
       .toolbar
         = link_to "Back", nil, :class => "back" unless current_page? root_path
-        %h1 Trambles
-        / Place this on the info's page
-        / = link_to "Full Site", root_url(:mobile => 0), :class => "button", :rel => "external"
-        %a.button.flip{ :href=>"#info" } Info
+        %h1
+          =h yield(:title)
+        - if current_page? info_index_path
+          = link_to "Full Site", root_url(:mobile => 0), :class => "button", :rel => "external"
+        - else
+          %a.button.flip{ :href=>"info" } Info
         = yield(:toolbar)
       - unless flash.empty?
         .info

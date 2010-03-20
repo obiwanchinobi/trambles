@@ -1,4 +1,6 @@
 class TransportsController < ApplicationController
+  before_filter :unauthorised_access
+  
   # GET /transports
   # GET /transports.xml
   def index

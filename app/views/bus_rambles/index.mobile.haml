@@ -1,0 +1,16 @@
+- content_for :title, "Bus Rambles"
+.edgetoedge
+  %ul
+    - @buses.each do |comment|
+      %li
+        %p
+          =h comment.transport.company if comment.transport.present?
+          ==added by #{comment.author} on #{comment.created_at.to_formatted_s(:date_time12)}
+        %p
+          == Bus Direction: #{comment.incident_info}
+        %p
+          - if comment.type == "Rave"
+            %span.raveIcon
+          - else
+            %span.rantIcon
+          =h comment.ramble
