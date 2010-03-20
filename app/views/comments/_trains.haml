@@ -1,17 +1,15 @@
-Total Raves:
-= @trains.type_equals('Rave').count
-Total Rants:
-= @trains.type_equals('Rant').count
 .rectangle
   %h2 Trains
 .triangle-l
 .triangle-r
 .buttons
   %span.train
-  %a.buttonRave{:href=>"raves/new?category=Train"}
-    %span.rave Rave
-  %a.buttonRant{:href=>"rants/new?category=Train"}
-    %span.rant Rant
+  %a.buttonRave{:href => "javascript: jQuery.facebox({ajax:'raves/new?category=Train'});"}
+    %span.rave
+      ==Rave(#{@trains.type_equals('Rave').count})
+  %a.buttonRant{:href => "javascript: jQuery.facebox({ajax:'rants/new?category=Train'});"}
+    %span.rant
+      ==Rant(#{@trains.type_equals('Rant').count})
 .info
   - @trains.each do |comment|
     %h2

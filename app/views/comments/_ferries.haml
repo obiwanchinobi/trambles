@@ -1,17 +1,15 @@
-Total Raves:
-= @ferries.type_equals('Rave').count
-Total Rants:
-= @ferries.type_equals('Rant').count
 .rectangle
   %h2 Ferries
 .triangle-l
 .triangle-r
 .buttons
   %span.ferry
-  %a.buttonRave{:href=>"raves/new?category=Ferry"}
-    %span.rave Rave
-  %a.buttonRant{:href=>"rants/new?category=Ferry"}
-    %span.rant Rant
+  %a.buttonRave{:href => "javascript: jQuery.facebox({ajax:'raves/new?category=Ferry'});"}
+    %span.rave
+      ==Rave(#{@ferries.type_equals('Rave').count})
+  %a.buttonRant{:href => "javascript: jQuery.facebox({ajax:'rants/new?category=Ferry'});"}
+    %span.rant
+      ==Rant(#{@ferries.type_equals('Rant').count})
 .info
   - @ferries.each do |comment|
     %h2

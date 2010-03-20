@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.xml
   def index
-    @buses    = Comment.category_equals(Comment::BUS)
-    @ferries  = Comment.category_equals(Comment::FERRY)
-    @trains   = Comment.category_equals(Comment::TRAIN)
+    @buses    = Comment.category_equals(Comment::BUS).descend_by_created_at
+    @ferries  = Comment.category_equals(Comment::FERRY).descend_by_created_at
+    @trains   = Comment.category_equals(Comment::TRAIN).descend_by_created_at
 
     # @drivers  = Comment.category_equals(Comment::DRIVER)
     # @taxis    = Comment.category_equals(Comment::TAXI)

@@ -4,10 +4,10 @@
 .triangle-r
 .buttons
   %span.bus
-  %a.buttonRave{:href=>"raves/new?category=Bus"}
+  %a.buttonRave{:href => "javascript: jQuery.facebox({ajax:'raves/new?category=Bus'});"}
     %span.rave
       ==Rave(#{@buses.type_equals('Rave').count})
-  %a.buttonRant{:href=>"rants/new?category=Bus"}
+  %a.buttonRant{:href => "javascript: jQuery.facebox({ajax:'rants/new?category=Bus'});"}
     %span.rant
       ==Rant(#{@buses.type_equals('Rant').count})
 .info
