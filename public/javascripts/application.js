@@ -25,7 +25,7 @@ function DisplayDirection(obj, type) {
       
       if (o.id == jQuery(obj).val()) {
         
-        var option_tags = '<option value=""/>';
+        var option_tags = '';
 
         // Get directions for line
         for(var k=0; k < o.directions.length; k++) {

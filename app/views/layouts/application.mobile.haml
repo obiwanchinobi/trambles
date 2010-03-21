@@ -3,8 +3,11 @@
   %head
     %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
     %title
-      = controller.action_name.titleize
-      = controller.controller_name.titleize
+      -if current_page? root_url
+        =h yield(:title)
+      -else
+        = controller.action_name.titleize
+        = controller.controller_name.titleize
       
     = stylesheet_link_tag "/jqtouch/jqtouch.min.css", "/jqtouch/themes/apple/theme.min.css", "mobile"
     = javascript_include_tag "/jqtouch/jquery.1.3.2.min.js", "/jqtouch/jqtouch.min.js", "mobile"
@@ -15,9 +18,7 @@
         = link_to "Back", nil, :class => "back" unless current_page? root_path
         %h1
           =h yield(:title)
-        - if current_page? info_index_path
-          = link_to "Full Site", root_url(:mobile => 0), :class => "button", :rel => "external"
-        - else
+        - unless current_page? info_index_path
           %a.button.flip{ :href=>"info" } Info
         = yield(:toolbar)
       - unless flash.empty?

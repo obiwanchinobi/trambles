@@ -1,7 +1,9 @@
 class RavesController < ApplicationController
   def new
-    @train_lines = TrainLine.ascend_by_name
     @comment = Rave.new(:category => params[:category])
+    @comment.transport = Transport.find_by_company("Sydney Buses") if @comment.category == Comment::BUS
+
+    @train_lines = TrainLine.ascend_by_name if @comment.category == Comment::TRAIN
   end
   
   def create

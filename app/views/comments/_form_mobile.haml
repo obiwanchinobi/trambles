@@ -1,65 +1,61 @@
-%br
 - form_for(@comment) do |f|
   = f.error_messages
   = f.hidden_field :category
 
-  %label
-    Author
-    %span.small
-      Enter you name
-  = f.text_field :author
-
-  -if @comment.category == Comment::BUS
-    %label
-      Bus Company *
-      %span.small
-        Enter Company Name
-    = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
-
-    %label
-      Bus Number *
-      %span.small
-        Enter Bus Number
-    = f.text_field :vehicle_no
-
-    %label
-      Short Description
-      %span.small
-        Enter direction or bus stop
-    = f.text_field :short_description
-
-  -if @comment.category == Comment::FERRY
-    %label
-      Ferry Line *
-      %span.small
-        Select ferry line
-    = f.collection_select(:transport_line_id, FerryLine.ascend_by_name, :id, :name, :include_blank => :true)
-    
-    %label
-      Short Description
-      %span.small
-        Enter direction or wharf
-    = f.text_field :short_description
+  %ul
+    %li
+      %label
+        Author (defaults to Anonymous)
+    %li
+      = f.text_field :author
   
-  -if @comment.category == Comment::TRAIN
-    = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
-    %label
-      Train Line *
-      %span.small
-        Select train line
-    = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
+    -if @comment.category == Comment::BUS
+      %li
+        %label
+          Bus Company *
+      %li
+        = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company)
+      %li
+        %label
+          Bus Number *
+      %li
+        = f.text_field :vehicle_no
+      %li
+        %label
+          Direction or bus stop
+      %li
+        = f.text_field :short_description
+  
+    -if @comment.category == Comment::FERRY
+      %li
+        %label
+          Ferry Line *
+      %li
+        = f.collection_select(:transport_line_id, FerryLine.ascend_by_name, :id, :name, :include_blank => :true)
+      %li
+        %label
+          Direction or wharf
+      %li
+        = f.text_field :short_description
+  
+    -if @comment.category == Comment::TRAIN
+      = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
+      %li
+        %label
+          Train Line *
+      %li
+        = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
+      %li
+        %label
+          Line Direction *
+      %li
+        #trains
+  
+    %li
+      %label
+        ==New #{controller.controller_name.titleize} *
+    %li
+      = f.text_area :ramble
 
-    %label
-      Line Direction *
-      %span.small
-        Select line direction
-    #trains
-
-  %label
-    ==New #{controller.controller_name.titleize} *
-    %span.small
-      Enter ramble
-  = f.text_area :ramble
-
-  %button
-    Create
+    %li
+      %a.whiteButton{:href=>"#", :script=>"javascript"} Create

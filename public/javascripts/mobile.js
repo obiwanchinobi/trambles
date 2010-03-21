@@ -4,6 +4,13 @@ $.jQTouch({
 });
 
 jQuery(document).ready(function() {
+  jQuery('a.whiteButton').live('tap', function() {
+    if (jQuery('#new_rant').length>0)
+      jQuery('#new_rant').submit();
+    else if (jQuery('#new_rave').length>0)
+      jQuery('#new_rave').submit();
+  });
+  
   jQuery('#rant_transport_line_id').live('change', function() {
     if (jQuery('#rant_category').val() == "Train")
       DisplayDirection(this, 'rant');
@@ -27,7 +34,7 @@ function DisplayDirection(obj, type) {
         
         // TODO: html injection after page validation is non-responsive
         // alert(o.id+"|"+jQuery('#trains').html());
-        var option_tags = '<option value=""/>';
+        var option_tags = '';
 
         // Get directions for line
         for(var k=0; k < o.directions.length; k++) {

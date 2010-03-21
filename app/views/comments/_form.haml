@@ -8,15 +8,15 @@
     %label
       Author
       %span.small
-        Enter you name (defaults to Anonymous)
+        Defaults to Anonymous
     = f.text_field :author
 
     -if @comment.category == Comment::BUS
       %label
         Bus Company *
         %span.small
-          Enter Company Name
-      = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
+          Select Company Name
+      = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company)
 
       %label
         Bus Number *
@@ -27,7 +27,7 @@
       %label
         Short Description
         %span.small
-          Enter direction or bus stop
+          Direction or bus stop
       = f.text_field :short_description
 
     -if @comment.category == Comment::FERRY
@@ -40,7 +40,7 @@
       %label
         Short Description
         %span.small
-          Enter direction or wharf
+          Direction or wharf
       = f.text_field :short_description
     
     -if @comment.category == Comment::TRAIN
