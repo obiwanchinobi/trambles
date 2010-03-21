@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100319041004) do
+ActiveRecord::Schema.define(:version => 20100321013444) do
 
   create_table "comments", :force => true do |t|
     t.string   "type"
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(:version => 20100319041004) do
     t.string   "latitude"
     t.string   "ip_address"
     t.string   "author"
-    t.string   "vehicle_driver_number"
-    t.string   "incident_info"
+    t.string   "vehicle_no"
+    t.string   "short_description"
     t.integer  "transport_id"
     t.integer  "transport_line_id"
     t.integer  "direction_id"

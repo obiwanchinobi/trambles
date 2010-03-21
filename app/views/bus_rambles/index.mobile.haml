@@ -5,8 +5,8 @@
       %li
         %p
           =h comment.transport.company if comment.transport.present?
-          =h comment.vehicle_driver_number
-          =h comment.incident_info
+          =h comment.vehicle_no
+          =h comment.short_description
           ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
         %p
           - if comment.type == "Rave"

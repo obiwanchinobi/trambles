@@ -14,8 +14,8 @@
   - @buses.each do |comment|
     %h2
       =h comment.transport.company if comment.transport.present?
-      =h comment.vehicle_driver_number
-      =h comment.incident_info
+      =h comment.vehicle_no
+      =h comment.short_description
     %p
       - if comment.type == "Rave"
         %span.raveIcon
