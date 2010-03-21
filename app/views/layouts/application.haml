@@ -3,8 +3,11 @@
   %head
     %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
     %title
-      = controller.action_name.titleize
-      = controller.controller_name.titleize
+      -if current_page? root_url
+        =h yield(:title)
+      -else
+        = controller.action_name.titleize
+        = controller.controller_name.titleize
     = stylesheet_link_tag 'reset', '960', 'scaffold', 'application' , 'facebox'
     = javascript_include_tag 'jquery-1.4.2.min.js', 'application', 'facebox'
 

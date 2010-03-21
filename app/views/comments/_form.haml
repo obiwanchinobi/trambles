@@ -8,18 +8,18 @@
     %label
       Author
       %span.small
-        Enter you name
+        Enter you name (defaults to Anonymous)
     = f.text_field :author
 
     -if @comment.category == Comment::BUS
       %label
-        Bus Company
+        Bus Company *
         %span.small
           Enter Company Name
       = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
 
       %label
-        Bus Number
+        Bus Number *
         %span.small
           Enter Bus Number
       = f.text_field :vehicle_no
@@ -32,7 +32,7 @@
 
     -if @comment.category == Comment::FERRY
       %label
-        Ferry Line
+        Ferry Line *
         %span.small
           Select ferry line
       = f.collection_select(:transport_line_id, FerryLine.ascend_by_name, :id, :name, :include_blank => :true)
@@ -46,19 +46,19 @@
     -if @comment.category == Comment::TRAIN
       = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
       %label
-        Train Line
+        Train Line *
         %span.small
           Select train line
       = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
  
       %label
-        Line Direction 
+        Line Direction *
         %span.small
           Select line direction
       #trains
 
     %label
-      ==New #{controller.controller_name.titleize}
+      ==New #{controller.controller_name.titleize} *
       %span.small
         Enter ramble
     = f.text_area :ramble
