@@ -13,7 +13,13 @@ class Comment < ActiveRecord::Base
   
   validates_presence_of :ramble
   
+  validate  :ramble_fields
+  
   def get_author
     self.author || 'Anonymous'
+  end
+  
+  def ramble_fields
+    
   end
 end

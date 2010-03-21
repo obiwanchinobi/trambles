@@ -4,8 +4,6 @@
 var json_train_lines = ''
 
 jQuery(document).ready(function() {
-  jQuery.facebox.settings.opacity = 0.6
-  
   jQuery('#rave_transport_line_id').change(function () {
     if (jQuery('#rant_category').val() == "Train")
       DisplayDirection(this, 'rant');
