@@ -16,7 +16,11 @@ class Comment < ActiveRecord::Base
   validate  :ramble_fields
   
   def get_author
-    self.author || 'Anonymous'
+    if (author == '') || (author.blank?)
+      'Anonymous'
+    else
+      author
+    end
   end
   
   def ramble_fields
