@@ -5,11 +5,13 @@ $.jQTouch({
 
 jQuery(document).ready(function() {
   jQuery('#rant_transport_line_id').live('change', function() {
-    DisplayDirection(this, 'rant');
+    if (jQuery('#rant_category').val() == "Train")
+      DisplayDirection(this, 'rant');
   });
 
   jQuery('#rave_transport_line_id').live('change', function () {
-    DisplayDirection(this, 'rave');
+    if (jQuery('#rave_category').val() == "Train")
+      DisplayDirection(this, 'rave');
   });
 });
 

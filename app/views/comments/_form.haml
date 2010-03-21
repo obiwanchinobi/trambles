@@ -11,49 +11,56 @@
         Enter you name
     = f.text_field :author
 
-    %label
-      Bus Number
-      %span.small
-        Enter Bus Number
-    = f.text_field :vehicle_no
-        
-    %label
-      Bus Company
-      %span.small
-        Enter Company Name
-    = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
+    -if @comment.category == Comment::BUS
+      %label
+        Bus Company
+        %span.small
+          Enter Company Name
+      = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company, :include_blank => :true)
 
-    %label
-      Bus Direction
-      %span.small
-        Enter Bus Info
-    = f.text_field :short_description
+      %label
+        Bus Number
+        %span.small
+          Enter Bus Number
+      = f.text_field :vehicle_no
+    
+      %label
+        Short Description
+        %span.small
+          Enter direction or bus stop
+      = f.text_field :short_description
 
-    %label
-      Ferry Line
-      %span.small
-        Select ferry line
-    = f.collection_select(:transport_line_id, FerryLine.ascend_by_name, :id, :name, :include_blank => :true)
+    -if @comment.category == Comment::FERRY
+      %label
+        Ferry Line
+        %span.small
+          Select ferry line
+      = f.collection_select(:transport_line_id, FerryLine.ascend_by_name, :id, :name, :include_blank => :true)
       
-    = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
-    %label
-      Train Line
-      %span.small
-        Select train line
-    = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
+      %label
+        Short Description
+        %span.small
+          Enter direction or wharf
+      = f.text_field :short_description
+    
+    -if @comment.category == Comment::TRAIN
+      = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
+      %label
+        Train Line
+        %span.small
+          Select train line
+      = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
  
-    %br
-
-    %label
-      Line Direction 
-      %span.small
-        Select line direction
-    #trains
+      %label
+        Line Direction 
+        %span.small
+          Select line direction
+      #trains
 
     %label
       ==New #{controller.controller_name.titleize}
       %span.small
-        Enter details
+        Enter ramble
     = f.text_area :ramble
 
     %button
