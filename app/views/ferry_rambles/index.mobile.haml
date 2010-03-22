@@ -8,8 +8,8 @@
       %li
         %p
           =h comment.ramble
-          %p.author
-            ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+        %p.author
+          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
   - else
     %ul
       %li.rant
@@ -18,5 +18,5 @@
       %li
         %p
           =h comment.ramble
-          %p.author
-            ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+        %p.author
+          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}

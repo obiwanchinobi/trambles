@@ -9,16 +9,16 @@
       %li
         %p
           =h comment.ramble
-          %p.author
-            ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+        %p.author
+          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
   - else
     %ul
-      %li.rave
+      %li.rant
         %p
           =h comment.train_line.name if comment.train_line.present?
           =h comment.direction.name if comment.direction.present?
       %li
         %p
           =h comment.ramble
-          %p.author
-            ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+        %p.author
+          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
