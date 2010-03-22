@@ -2,6 +2,8 @@
 %html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
   %head
     %meta{ :content => "text/html;charset=UTF-8", "http-equiv" => "content-type" }
+    %link{:rel=>"/apple-touch-icon", :href=>"images/icon.png"}
+    %link{:rel=>"/apple-touch-startup-image", :href=>"images/default.png"}
     %title
       -if current_page? root_url
         =h yield(:title)

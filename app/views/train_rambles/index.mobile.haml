@@ -1,15 +1,24 @@
 - content_for :title, "Train Rambles"
-.edgetoedge
-  %ul
-    - @trains.each do |comment|
-      %li
+- @trains.each do |comment|
+  - if comment.type == "Rave"
+    %ul
+      %li.rave
         %p
           =h comment.train_line.name if comment.train_line.present?
           =h comment.direction.name if comment.direction.present?
-          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+      %li
         %p
-          - if comment.type == "Rave"
-            %span.raveIcon
-          - else
-            %span.rantIcon
           =h comment.ramble
+          %p.author
+            ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+  - else
+    %ul
+      %li.rave
+        %p
+          =h comment.train_line.name if comment.train_line.present?
+          =h comment.direction.name if comment.direction.present?
+      %li
+        %p
+          =h comment.ramble
+          %p.author
+            ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}

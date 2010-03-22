@@ -1,14 +1,22 @@
 - content_for :title, "Ferry Rambles"
-.edgetoedge
-  %ul
-    - @ferries.each do |comment|
-      %li
+- @ferries.each do |comment|
+  - if comment.type == "Rave"
+    %ul
+      %li.rave
         %p
           =h comment.ferry_line.name if comment.ferry_line.present?
-          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+      %li
         %p
-          - if comment.type == "Rave"
-            %span.raveIcon
-          - else
-            %span.rantIcon
           =h comment.ramble
+          %p.author
+            ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+  - else
+    %ul
+      %li.rant
+        %p
+          =h comment.ferry_line.name if comment.ferry_line.present?
+      %li
+        %p
+          =h comment.ramble
+          %p.author
+            ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
