@@ -1,17 +1,26 @@
 - content_for :title, "Bus Rambles"
-.edgetoedge
-  %ul
-    - @buses.each do |comment|
-      %li
+- @buses.each do |comment|
+  - if comment.type == "Rave"
+    %ul
+      %li.rave
         %p
           =h comment.transport.company if comment.transport.present?
           =h comment.vehicle_no
           =h comment.short_description
-          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+      %li
         %p
-          - if comment.type == "Rave"
-            %span.raveIcon
-          - else
-            %span.rantIcon
-          %span.label
-            =h comment.ramble
+          =h comment.ramble
+        %p.author
+          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+  - else
+    %ul
+      %li.rant
+        %p
+          =h comment.transport.company if comment.transport.present?
+          =h comment.vehicle_no
+          =h comment.short_description
+      %li
+        %p
+          =h comment.ramble
+        %p.author
+          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}

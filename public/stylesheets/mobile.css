@@ -90,20 +90,29 @@ body > * {
 }
 
 .rantIcon{
-background:url(../images/mobile/rant.gif) no-repeat 10px 8px;
-display:block;
-height:32px;
-width:32px;
+  background:url(../images/mobile/rant.gif) no-repeat 10px 8px;
+  display:block;
+  height:32px;
+  width:32px;
 }
 .raveIcon{
-background:url(../images/mobile/rave.gif) no-repeat 10px 8px;
-display:block;
-height:32px;
-width:32px;
+  background:url(../images/mobile/rave.gif) no-repeat 10px 8px;
+  display:block;
+  height:32px;
+  width:32px;
 }
 
 .question {
   background: url(../images/bck.jpg);
+}
+
+.author {
+  font-size: 10px;
+}
+
+table {
+  padding 10px 10px 10px 10px;
+  bottom-border:1px;
 }
 
 #errorExplanation {
