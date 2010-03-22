@@ -296,6 +296,22 @@ text-indent:30px;
 display:block;
 }
 
+.raveHeader {
+  background: #c2e594;
+  border:solid 2px #4c7f18;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 3px 3px 3px 3px;
+}
+
+.rantHeader {
+  background: #fd9999;
+  border:solid 2px #7d0000;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 3px 3px 3px 3px;
+}
+
 /* ----------- My Form ----------- */
 .addForm{
 	margin:0 auto;

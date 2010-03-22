@@ -12,15 +12,17 @@
       ==Rant(#{@trains.type_equals('Rant').count})
 .info
   - @trains.each do |comment|
-    %h2
-      =h comment.train_line.name if comment.train_line.present?
-      =h comment.direction.name if comment.direction.present?
+    - if comment.type == "Rave"
+      .raveHeader
+        %h2
+          =h comment.train_line.name if comment.train_line.present?
+          =h comment.direction.name if comment.direction.present?
+    - else
+      .rantHeader
+        %h2
+          =h comment.train_line.name if comment.train_line.present?
+          =h comment.direction.name if comment.direction.present?
     %p
-      - if comment.type == "Rave"
-        %span.raveIcon
-      - else
-        %span.rantIcon
-      %br
       =h comment.ramble
       %br
       %span.footer

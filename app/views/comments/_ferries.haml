@@ -12,20 +12,22 @@
       ==Rant(#{@ferries.type_equals('Rant').count})
 .info
   - @ferries.each do |comment|
-    %h2
-      =h comment.ferry_line.name if comment.ferry_line.present?
+    - if comment.type == "Rave"
+      .raveHeader
+        %h2
+          =h comment.ferry_line.name if comment.ferry_line.present?
+          =h comment.direction.name if comment.direction.present?
+    - else
+      .rantHeader
+        %h2
+          =h comment.ferry_line.name if comment.ferry_line.present?
+          =h comment.direction.name if comment.direction.present?
     %p
-      - if comment.type == "Rave"
-        %span.raveIcon
-      - else
-        %span.rantIcon
-      =h comment.direction.name if comment.direction.present?
-      %br
       =h comment.ramble
       %br
       %span.footer
         added by 
         %span.author
           =h comment.get_author
-        on 
-        =h comment.created_at.to_formatted_s(:date_time12)
+          on 
+          =h comment.created_at.to_formatted_s(:date_time12)
