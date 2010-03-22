@@ -1,5 +1,113 @@
+body > * {
+    background: rgb(197,204,211) url(../images/bck.jpg);
+}
+
+.toolbar {
+    -webkit-box-sizing: border-box;
+    border-bottom: 1px solid #2d3642;
+    padding: 10px;
+    height: 45px;
+    background: url(../images/mobile/toolbar.png) #6d84a2 repeat-x;
+    position: relative;
+}
+
+.button, .back, .cancel, .add {
+    position: absolute;
+    overflow: hidden;
+    top: 8px;
+    right: 6px;
+    margin: 0;
+    border-width: 0 5px;
+    padding: 0 3px;
+    width: auto;
+    height: 30px;
+    line-height: 30px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: rgba(0, 0, 0, 0.5) 0px -1px 0;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    white-space: nowrap;
+    background: none;
+    -webkit-border-image: url(../images/mobile/button.png) 0 5 0 5;
+}
+
+.button.active, .back.active, .cancel.active, .add.active {
+    -webkit-border-image: url(../images/mobile/button.png) 0 5 0 5;	
+}
+
+.back {
+    left: 6px;
+    right: auto;
+    padding: 0;
+    max-width: 55px;
+    border-width: 0 8px 0 14px;
+    -webkit-border-image: url(../images/mobile/back_button.png) 0 8 0 14;
+}
+
+.label {
+  padding-left:40px;
+}
+
+.rave {
+  background: #c2e594;
+}
+
+.rant {
+  background: #fd9999;
+}
+
+.bus {
+  background:url(../images/mobile/bus.png);
+  display:block;
+  left:18px;
+  top:68px;
+  position: absolute;
+  width:20px;
+  height:32px;
+}
+
+.ferry {
+  background:url(../images/mobile/ferry.png);
+  display:block;
+  left:18px;
+  top:222px;
+  position: absolute;
+  width:20px;
+  height:32px;
+}
+
+.train {
+  background:url(../images/mobile/train.png);
+  display:block;
+  left:18px;
+  top:374px;
+  position: absolute;
+  width:20px;
+  height:32px;
+}
+
+.rantIcon{
+background:url(../images/mobile/rant.gif) no-repeat 10px 8px;
+display:block;
+height:32px;
+width:32px;
+}
+.raveIcon{
+background:url(../images/mobile/rave.gif) no-repeat 10px 8px;
+display:block;
+height:32px;
+width:32px;
+}
+
+.question {
+  background: url(../images/bck.jpg);
+}
+
 #errorExplanation {
-  width: 400px;
+  width: 320px;
   border: 2px solid #c00;
   padding: 7px;
   padding-bottom: 12px;

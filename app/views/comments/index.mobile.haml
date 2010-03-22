@@ -1,34 +1,37 @@
 - content_for :title, "Trambles"
 %ul
   %li.arrow
-    %a{:href => "bus_rambles" } Bus Rambles
-  %li
+    %span.bus
+    %a.label{:href => "bus_rambles" } View Bus Rambles
+  %li.rave
     %a{:href=>"raves/new?category=Bus"}
-      %span.rave
-        ==Rave(#{@buses.type_equals('Rave').count})
-  %li
+      %span
+        ==Add Rave (#{@buses.type_equals('Rave').count})
+  %li.rant
     %a{:href=>"rants/new?category=Bus"}
-      %span.rant
-        ==Rant(#{@buses.type_equals('Rant').count})
+      %span
+        ==Add Rant (#{@buses.type_equals('Rant').count})
 %ul
   %li.arrow
-    %a{:href => "ferry_rambles" } Ferry Rambles
-  %li
+    %span.ferry
+    %a.label{:href => "ferry_rambles" } View Ferry Rambles
+  %li.rave
     %a{:href=>"raves/new?category=Ferry"}
-      %span.rave
-        ==Rave(#{@ferries.type_equals('Rave').count})
-  %li
+      %span
+        ==Add Rave (#{@ferries.type_equals('Rave').count})
+  %li.rant
     %a{:href=>"rants/new?category=Ferry"}
-      %span.rant
-        ==Rant(#{@ferries.type_equals('Rant').count})
+      %span
+        ==Add Rant (#{@ferries.type_equals('Rant').count})
 %ul
   %li.arrow
-    %a{:href => "train_rambles" } Train Rambles
-  %li
+    %span.train
+    %a.label{:href => "train_rambles" } View Train Rambles
+  %li.rave
     %a{:href=>"raves/new?category=Train"}
-      %span.rave
-        ==Rave(#{@trains.type_equals('Rave').count})
-  %li
+      %span
+        ==Add Rave (#{@trains.type_equals('Rave').count})
+  %li.rant
     %a{:href=>"rants/new?category=Train"}
-      %span.rant
-        ==Rant(#{@trains.type_equals('Rant').count})
+      %span
+        ==Add Rant (#{@trains.type_equals('Rant').count})

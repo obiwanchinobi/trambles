@@ -3,36 +3,36 @@
   = f.hidden_field :category
 
   %ul
-    %li
+    %li.question
       %label
         Author (defaults to Anonymous)
     %li
       = f.text_field :author
   
     -if @comment.category == Comment::BUS
-      %li
+      %li.question
         %label
           Bus Company *
       %li
         = f.collection_select(:transport_id, Bus.ascend_by_company, :id, :company)
-      %li
+      %li.question
         %label
           Bus Number *
       %li
         = f.text_field :vehicle_no
-      %li
+      %li.question
         %label
           Direction or bus stop
       %li
         = f.text_field :short_description
   
     -if @comment.category == Comment::FERRY
-      %li
+      %li.question
         %label
           Ferry Line *
       %li
         = f.collection_select(:transport_line_id, FerryLine.ascend_by_name, :id, :name, :include_blank => :true)
-      %li
+      %li.question
         %label
           Direction or wharf
       %li
@@ -40,18 +40,18 @@
   
     -if @comment.category == Comment::TRAIN
       = javascript_tag("var json_train_lines = #{@train_lines.to_json(:only => [:id, :name], :include => :directions)}")
-      %li
+      %li.question
         %label
           Train Line *
       %li
         = f.collection_select(:transport_line_id, TrainLine.ascend_by_name, :id, :name, :include_blank => :true)
-      %li
+      %li.question
         %label
           Line Direction *
       %li
         #trains
   
-    %li
+    %li.question
       %label
         ==New #{controller.controller_name.titleize} *
     %li
