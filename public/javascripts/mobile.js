@@ -11,6 +11,14 @@ jQuery(document).ready(function() {
       jQuery('#new_rave').submit();
   });
   
+  // For browser debugging
+  jQuery('a.whiteButton').live('click', function() {
+    if (jQuery('#new_rant').length>0)
+      jQuery('#new_rant').submit();
+    else if (jQuery('#new_rave').length>0)
+      jQuery('#new_rave').submit();
+  });
+  
   jQuery('#rant_transport_line_id').live('change', function() {
     if (jQuery('#rant_category').val() == "Train")
       DisplayDirection(this, 'rant');

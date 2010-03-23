@@ -1,22 +1,16 @@
 - content_for :title, "Ferry Rambles"
 - @ferries.each do |comment|
-  - if comment.type == "Rave"
-    %ul
+  %ul
+    - if comment.class.name == "Rave"
       %li.rave
         %p
           =h comment.ferry_line.name if comment.ferry_line.present?
-      %li
-        %p
-          =h comment.ramble
-        %p.author
-          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
-  - else
-    %ul
+    - else
       %li.rant
         %p
           =h comment.ferry_line.name if comment.ferry_line.present?
-      %li
-        %p
-          =h comment.ramble
-        %p.author
-          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+    %li
+      %p
+        =h comment.ramble
+      %p.author
+        ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}

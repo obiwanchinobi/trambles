@@ -1,24 +1,18 @@
 - content_for :title, "Train Rambles"
 - @trains.each do |comment|
-  - if comment.type == "Rave"
-    %ul
+  %ul
+    - if comment.class.name == "Rave"
       %li.rave
         %p
           =h comment.train_line.name if comment.train_line.present?
           =h comment.direction.name if comment.direction.present?
-      %li
-        %p
-          =h comment.ramble
-        %p.author
-          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
-  - else
-    %ul
+    - else
       %li.rant
         %p
           =h comment.train_line.name if comment.train_line.present?
           =h comment.direction.name if comment.direction.present?
-      %li
-        %p
-          =h comment.ramble
-        %p.author
-          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+    %li
+      %p
+        =h comment.ramble
+      %p.author
+        ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}

@@ -11,7 +11,7 @@ class RavesController < ApplicationController
     @comment = Rave.new(params[:rave])
     
     if @comment.save
-      flash[:notice] = 'Rave was successfully created.'
+      flash[:success] = 'Rave was successfully created.'
       redirect_to(root_url)
     else
       render :action => "new"

@@ -1,26 +1,20 @@
 - content_for :title, "Bus Rambles"
 - @buses.each do |comment|
-  - if comment.type == "Rave"
-    %ul
+  %ul
+    - if comment.class.name == "Rave"
       %li.rave
         %p
           =h comment.transport.company if comment.transport.present?
           =h comment.vehicle_no
           =h comment.short_description
-      %li
-        %p
-          =h comment.ramble
-        %p.author
-          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
-  - else
-    %ul
+    - else
       %li.rant
         %p
           =h comment.transport.company if comment.transport.present?
           =h comment.vehicle_no
           =h comment.short_description
-      %li
-        %p
-          =h comment.ramble
-        %p.author
-          ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
+    %li
+      %p
+        =h comment.ramble
+      %p.author
+        ==added by #{comment.get_author} on #{comment.created_at.to_formatted_s(:date_time12)}
