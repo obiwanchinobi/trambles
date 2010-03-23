@@ -4,12 +4,12 @@
 var json_train_lines = ''
 
 jQuery(document).ready(function() {
-  jQuery('#rave_transport_line_id').change(function () {
+  jQuery('#rant_transport_line_id').live('change', function() {
     if (jQuery('#rant_category').val() == "Train")
       DisplayDirection(this, 'rant');
   });
-  
-  jQuery('#rant_transport_line_id').change(function () {
+
+  jQuery('#rave_transport_line_id').live('change', function () {
     if (jQuery('#rave_category').val() == "Train")
       DisplayDirection(this, 'rave');
   });
