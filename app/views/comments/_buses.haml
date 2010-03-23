@@ -12,7 +12,7 @@
       ==Rant(#{@buses.type_equals('Rant').count})
 .info
   - @buses.each do |comment|
-    - if comment.type == "Rave"
+    - if comment.class.name == "Rave"
       .raveHeader
         %h2
           =h comment.transport.company if comment.transport.present?

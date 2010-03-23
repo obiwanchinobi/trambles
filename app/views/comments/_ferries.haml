@@ -12,7 +12,7 @@
       ==Rant(#{@ferries.type_equals('Rant').count})
 .info
   - @ferries.each do |comment|
-    - if comment.type == "Rave"
+    - if comment.class.name == "Rave"
       .raveHeader
         %h2
           =h comment.ferry_line.name if comment.ferry_line.present?
