@@ -1,6 +1,6 @@
 class RantsController < ApplicationController
   def new
-    @comment = Rant.new(:category => params[:category])
+    @comment = Rant.new(:category => params[:category], :ip_address => request.remote_ip)
     @comment.transport = Transport.find_by_company("Sydney Buses") if @comment.category == Comment::BUS
 
     @train_lines = TrainLine.ascend_by_name if @comment.category == Comment::TRAIN

@@ -1,6 +1,7 @@
 - form_for(@comment) do |f|
   = f.error_messages
   = f.hidden_field :category
+  = f.hidden_field :ip_address
 
   %ul
     %li.question
